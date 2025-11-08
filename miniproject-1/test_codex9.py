@@ -1,5 +1,5 @@
 import unittest
-from solutions import (decode_fragment, organize_segments, unique_modules, 
+from codex9 import (decode_fragment, organize_segments, unique_modules, 
                        build_restoration_queue, track_actions, 
                        map_actions_to_metadata, quick_sort_modules, 
                        insert_bst, inorder_bst, build_dependency_graph, 
@@ -98,7 +98,9 @@ class TestCodex9Project(unittest.TestCase):
         }
         visited, msg = dfs_activation(graph, "104")
         self.assertIn('215', visited)
+        self.assertNotIn('999', visited)
         self.assertEqual(visited[-1], '309')
+        self.assertNotEqual(visited[0], '518')
         self.assertEqual(msg, "Blueprint successfully restored. Codex-9 reboot complete.")
 
 if __name__ == '__main__':
