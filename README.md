@@ -46,7 +46,7 @@ Complete all tasks to successfully reboot Codex-9!
 
 3. **Testing**  
    - You can test each function individually before moving to the next.  
-   - Unit tests are in `test_unit.py` and will validate your solutions automatically.
+   - Unit tests are in `test_*.py` and will validate your solutions automatically.
 
 4. **Code Style & Libraries**  
    - Use **only standard Python libraries**.  
@@ -58,8 +58,8 @@ Complete all tasks to successfully reboot Codex-9!
      ```bash
      git checkout -b teamname_task_branch
      ```
-     - Use a **unique branch name** (team + project + task).  
-       Example: `teamalpha_codex9_task1-10`
+     - Use a **unique branch name** (team + project).  
+       Example: `teamalpha_codex9`
    - **Commit your changes** frequently:
      ```bash
      git add .
@@ -67,10 +67,10 @@ Complete all tasks to successfully reboot Codex-9!
      ```
    - **Push your branch** to GitHub:
      ```bash
-     git push origin teamalpha_codex9_task1-10
+     git push origin teamalpha_codex9
      ```
    - **Open a Pull Request (PR)**:
-     - Target branch: `main` or `master`
+     - Target branch: `master`
      - Fill PR description and use the PR template (see below)
    - **Review & Tests**:
      - Automated unit tests will run on the PR.  
@@ -81,3 +81,21 @@ Complete all tasks to successfully reboot Codex-9!
    - Make sure your branch is up to date with the base branch before merging.
 
 ---
+
+## PR TEMPLATE
+
+Use this template when creating a PR:
+
+```markdown
+# PR Title: Codex-9 Mini-Project Submission Team Alpha
+
+## Team Info
+- Team: # Your team name
+- Members: # List of members
+
+## Summary
+Short summary of changes made in this PR.
+
+## Notes
+- Any assumptions or clarifications made during implementation.
+- Any known issues (if any).
