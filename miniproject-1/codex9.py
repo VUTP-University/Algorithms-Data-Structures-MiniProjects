@@ -3,6 +3,9 @@
   🧩 Mini Project: The Data Heist of Codex-9
 =========================================================
 
+TEAM: # Your team's name
+MEMBERS: # List of team members
+
 STORY:
 The AI system Codex-9 has been hacked. Fragments of its digital blueprint 
 have been scattered and corrupted across the network. 
@@ -11,6 +14,17 @@ Your mission as the Forensic Programmer is to restore it step by step.
 Each function (Task 1–10) represents a part of the restoration process.
 The output from each function becomes the input for the next one.
 Complete all tasks to successfully reboot Codex-9!
+
+INSTRUCTIONS:
+1. Complete each function according to its docstring.
+2. Use only standard Python libraries. Do not import external packages.
+3. You can test each function individually before proceeding to the next.
+4. Do not change the function signatures, docstrings, names & arguments.
+5. Ensure your code is clean, well-commented, and efficient.
+6. Upon completion, Codex-9 should reboot successfully!
+7. After completing all tasks, commit your changes to your branch and raise a pull request. Unit Tests will be executed automatically to validate your solutions.
+8. If all tests pass and after your submission is approved, your code will be merged into the master branch.
+9. In case that tests fail or you get code reviews, address the issues, commit the changes in your branch and update the pull request.
 
 =========================================================
 """

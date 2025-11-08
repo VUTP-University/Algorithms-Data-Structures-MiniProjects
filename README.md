@@ -1,1 +1,2 @@
-# Algorithms-Data-Structures-MiniProjects-2025
+# Algorithms & Data Structures MiniProjects (Python)
+
