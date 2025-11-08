@@ -1,5 +1,9 @@
 import unittest
-from codex9 import *
+from solutions import (decode_fragment, organize_segments, unique_modules, 
+                       build_restoration_queue, track_actions, 
+                       map_actions_to_metadata, quick_sort_modules, 
+                       insert_bst, inorder_bst, build_dependency_graph, 
+                       dfs_activation)
 
 class TestCodex9Project(unittest.TestCase):
     """Unit tests for the codex9 mini-project tasks.
@@ -20,12 +24,16 @@ class TestCodex9Project(unittest.TestCase):
         test_task10_dfs_activation: Tests depth-first search activation of modules.
     """
 
-    def test_task1_decode_fragment(self):
+    def test1_task1_decode_fragment(self):
         self.assertEqual(decode_fragment("edoc;nohtyp;ataD"), ['code', 'python', 'Data'])
-        self.assertEqual(decode_fragment("olleh;dlrow"), ['hello', 'world'])
-        self.assertEqual(decode_fragment("1tupni;2tuptuo;3elif"), ['input', 'output', 'file'])
 
-    def test_task2_organize_segments(self):
+    def test2_task1_decode_fragment(self):
+        self.assertEqual(decode_fragment("olleh;dlrow"), ['hello', 'world'])
+        
+    def test3_task1_decode_fragment(self):
+        self.assertEqual(decode_fragment("1tupni;2tuptuo;3elif"), ['input1', 'output2', 'file3'])
+
+    def test1_task2_organize_segments_var1(self):
         words = ['code', 'python', 'Data']
         ids = [101, 202, 303]
         expected = [('code', 101), ('python', 202), ('Data', 303)]
@@ -88,9 +96,10 @@ class TestCodex9Project(unittest.TestCase):
             "412": ["518"],
             "518": []
         }
-        result = dfs_activation(graph, "104")
-        self.assertTrue('104' in result)
-        self.assertTrue(result[-1] == '518')
+        visited, msg = dfs_activation(graph, "104")
+        self.assertIn('215', visited)
+        self.assertEqual(visited[-1], '309')
+        self.assertEqual(msg, "Blueprint successfully restored. Codex-9 reboot complete.")
 
 if __name__ == '__main__':
     unittest.main()

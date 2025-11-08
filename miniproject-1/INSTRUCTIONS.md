@@ -24,9 +24,14 @@ You receive a corrupted data transmission:
 ```
 
 Write a function that:
-	1.	Splits the string by ;
-	2.	Reverses each word
-	3.	Returns a list of decoded words.
+* Splits the string by ;
+* Reverses each word
+* Returns a list of decoded words.
+
+
+```py
+['code', 'python', 'Data', 'structure', 'Algorithms']
+```
 
 
 #### Task 2: Organize the Blueprint Segments
@@ -36,7 +41,11 @@ Each decoded word corresponds to a module number in Codex-9:
 module_numbers = [104, 215, 309, 412, 518]
 ```
 
-Combine both lists (from Task 1 and above) into a list of tuples:
+Combine both lists (from Task 1 and above) into a list of tuples
+
+```python
+[('code', 104), ('python', 215), ('Data', 309), ('structure', 412), ('Algorithms', 518)]
+```
 
 
 #### Task 3: Verify Module Uniqueness
@@ -45,6 +54,9 @@ Some tuples may repeat due to transmission errors.
 Convert your tuple list into a set to remove duplicates.
 Then convert back to a list and return the list of unique tuples.
 
+```py
+[('python', 215), ('structure', 412), ('Algorithms', 518), ('code', 104), ('Data', 309)]
+```
 
 #### Task 4: Build the Restoration Queue
 
@@ -52,6 +64,9 @@ Modules must be rebuilt in the order they were received.
 Use a queue (collections.deque) to enqueue all unique modules.
 Then simulate restoring them one by one and return the list of restored modules IDs in the order processed.
 
+```py
+[215, 412, 518, 104, 309]
+```
 
 #### Task 5: Track Actions with Stack
 
@@ -59,6 +74,10 @@ While restoring, record your operations (e.g., "load_215", "verify_309") in a st
 After processing, pop the last 3 actions to simulate undoing failed repairs.
 
 Return the list of successful actions after undoing.
+
+```py
+['load_215', 'verify_412']
+```
 
 #### Task 6: Map Actions to Metadata
 
@@ -75,12 +94,29 @@ metadata = {
 ```
 Create a dictionary mapping action_name → metadata and return the dictionary.
 
+```py
+{
+  "load_215": {
+    "size": 5.2,
+    "status": "ok"
+  },
+  "verify_412": {
+    "size": 4.0,
+    "status": "ok"
+  }
+}
+```
+
 
 #### Task 7: Sort Modules by Size
 
 From your dictionary, extract all (module_id, size) pairs.
 Implement quick sort to order them by size ascending.
 Return the sorted list.
+
+```py
+[('412', 4.0), ('215', 5.2)]
+```
 
 #### Task 8: Build the Integrity Tree
 
@@ -91,6 +127,10 @@ Implement:
 * Inorder traversal (to confirm sorted order)
 
 Return the inorder traversal list of module IDs (should match Task 7).
+
+```py
+[(412, 4.0), (215, 5.2)]
+```
 
 ##### Task 9: Connect Modules with Graph
 
@@ -107,11 +147,20 @@ Now that all modules are repaired, you receive a connection map defining depende
 ```
 
 Represent this as an adjacency list (dictionary of lists).
-Return the adjacency list.
+Return the adjacency list(should match the connection map).
 
+```py
+{'104': ['215', '309'], '215': ['412'], '309': ['518'], '412': ['518'], '518': []}
+```
 
 ##### Task 10: Reboot Codex-9
 
 Implement Depth-First Search (DFS) on your graph to determine the sequence of module activations needed to reboot Codex-9.
 Start from the smallest module ID (by numeric value).
 Each node visited represents an activated module.
+
+
+```py
+(['104', '215', '412', '518', '309'], 
+'Blueprint successfully restored. Codex-9 reboot complete.')
+```
