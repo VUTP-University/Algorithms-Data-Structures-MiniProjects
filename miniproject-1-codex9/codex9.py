@@ -56,9 +56,9 @@ def decode_fragment(fragment: str) -> list:
     # TODO: Implement the decoding logic here
     words = fragment.split(";")
     reversed_strings = [s[::-1] for s in words]
-    print(reversed_strings)
+    return reversed_strings
   
-decode_fragment("edoc;nohtyp;ataD;erutcurts;smhtiroglA")
+print(decode_fragment("edoc;nohtyp;ataD;erutcurts;smhtiroglA"))
 
 # =======================================================
 # 🧩 TASK 2 — Organize the Blueprint Segments (Lists → Tuples)
@@ -103,7 +103,12 @@ def unique_modules(modules: list) -> list:
         [('code', 104), ('python', 215)]
     """
     # TODO: Convert to set and back to list
-    pass
+    sets = set(modules)
+    answer = list(sets)
+    answer.sort()
+    return answer
+    
+print(unique_modules([('code', 104), ('python', 215), ('python', 215)]))
 
 
 # =======================================================
