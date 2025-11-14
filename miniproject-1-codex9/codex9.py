@@ -54,8 +54,11 @@ def decode_fragment(fragment: str) -> list:
         ['code', 'python', 'Data', 'structure', 'Algorithms']
     """
     # TODO: Implement the decoding logic here
-    pass
-
+    words = fragment.split(";")
+    reversed_strings = [s[::-1] for s in words]
+    print(reversed_strings)
+  
+decode_fragment("edoc;nohtyp;ataD;erutcurts;smhtiroglA")
 
 # =======================================================
 # 🧩 TASK 2 — Organize the Blueprint Segments (Lists → Tuples)
