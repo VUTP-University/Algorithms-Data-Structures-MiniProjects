@@ -62,8 +62,6 @@ def decode_fragment(fragment: str) -> list:
             reversed_word=char+reversed_word
         decoded.append(reversed_word)
     return decoded
-result=decode_fragment("edoc;nohtyp;ataD;erutcurts;smhtiroglA")
-print(result)
 
 
 # =======================================================
