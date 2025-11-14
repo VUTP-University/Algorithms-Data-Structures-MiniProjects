@@ -85,9 +85,9 @@ def organize_segments(words: list, module_numbers: list) -> list:
     Example Output:
         [('code', 104), ('python', 215), ('Data', 309), ('structure', 412), ('Algorithms', 518)]
     """
-    # TODO: Combine words and IDs into tuples
-    pass
-
+    if len(words) != len(module_numbers):
+        raise ValueError(f"Length mismatch")
+    return list(zip(words, module_numbers))
 
 # =======================================================
 # 🧩 TASK 3 — Verify Module Uniqueness (Sets)
@@ -108,7 +108,7 @@ def unique_modules(modules: list) -> list:
         [('code', 104), ('python', 215)]
     """
     # TODO: Convert to set and back to list
-    pass
+    return 0
 
 
 # =======================================================
@@ -131,8 +131,13 @@ def build_restoration_queue(unique_list: list) -> list:
         [104, 215, 309]
     """
     # TODO: Use deque for queue logic
-    pass
+    q = deque()
+    for _, module_id in unique_list:
+        q.append(module_id)
+    return [q.popleft() for _ in range(len(q))]
+    
 
+    
 # =======================================================
 # 🧩 TASK 5 — Track Actions with Stack (Stack)
 # =======================================================
@@ -155,7 +160,18 @@ def track_actions(module_ids: list) -> list:
         ['load_104', 'verify_215']
     """
     # TODO: Use list as stack and pop last 3
-    pass
+    stack = []
+    for i, mid in enumerate(module_ids):
+        if i % 2 == 0:
+            stack.append(f"{mid}")
+        else:
+            stack.append(f"{mid}")
+
+    if len(stack) > 3:
+        stack = stack[:-3]
+    else:
+        stack = []
+    return stack
 
 
 # =======================================================
@@ -185,7 +201,7 @@ def map_actions_to_metadata(actions: list, metadata: dict) -> dict:
         }
     """
     # TODO: Extract module IDs from actions and map metadata
-    pass
+    return 0
 
 
 # =======================================================
@@ -207,7 +223,7 @@ def quick_sort_modules(modules: list) -> list:
         [(309, 2.1), (104, 3.4), (215, 5.2)]
     """
     # TODO: Implement quick sort
-    pass
+    return 0
 
 
 # =======================================================
@@ -249,7 +265,7 @@ def inorder_bst(root: BSTNode) -> list:
         root (BSTNode): The root of the BST.
     """
     # TODO: Implement inorder traversal
-    pass
+    return 0
 
 
 
@@ -277,7 +293,7 @@ def build_dependency_graph(connection_map: dict) -> dict:
         Same dictionary (adjacency list)
     """
     # TODO: Return adjacency list
-    pass
+    return 0
 
 
 # =======================================================
@@ -309,6 +325,6 @@ def dfs_activation(graph: dict, start: str) -> list:
         System Message: Blueprint successfully restored. Codex-9 reboot complete.
     """
     # TODO: Implement recursive DFS
-    pass
+    return 0
 
 
