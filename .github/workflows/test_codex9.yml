@@ -28,4 +28,4 @@ jobs:
       - name: Run Codex9 Tests
         run: |
           echo "🔍 Running unit tests..."
-          pytest -q test_codex9.py
+          pytest -q miniproject-1-codex9-ilysimo/test_codex9.py
