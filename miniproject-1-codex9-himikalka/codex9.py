@@ -54,7 +54,7 @@ def decode_fragment(fragment: str) -> list:
         ['code', 'python', 'Data', 'structure', 'Algorithms']
     """
     # TODO: Implement the decoding logic here
-    pass
+    return 1
 
 
 # =======================================================
