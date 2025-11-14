@@ -3,8 +3,8 @@
   🧩 Mini Project: The Data Heist of Codex-9
 =========================================================
 
-TEAM: # Your team's name
-MEMBERS: # List of team members
+TEAM: himikalka
+MEMBERS: 24101018 , 24101022
 
 STORY:
 The AI system Codex-9 has been hacked. Fragments of its digital blueprint 
