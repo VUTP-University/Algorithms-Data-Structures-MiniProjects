@@ -32,7 +32,11 @@ Complete all tasks to successfully reboot Codex-9!
 ## INSTRUCTIONS
 
 1. **Team Setup**  
-   - Work **individually** or in **teams of 3–4**.  
+   - Work **individually** or in **teams of 1-3**.
+   - Create a copy of the project dir with the name of your team
+      ```bash
+      cp miniproject-1-codex miniproject-1-codex9-team-alpha
+      ```
    - Fill your team info in the file:
      ```python
      TEAM: # Your team's name
