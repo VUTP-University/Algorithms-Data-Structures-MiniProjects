@@ -54,7 +54,15 @@ def decode_fragment(fragment: str) -> list:
         ['code', 'python', 'Data', 'structure', 'Algorithms']
     """
     # TODO: Implement the decoding logic here
-    pass
+    if not fragment:
+        return []
+    
+    parts = fragment.split(";")
+
+    decoded = [p[::-1] for p in parts if p]
+
+    return decoded 
+
 
 
 # =======================================================
