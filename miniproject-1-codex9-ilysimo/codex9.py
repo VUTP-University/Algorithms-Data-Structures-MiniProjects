@@ -60,7 +60,7 @@ def decode_fragment(fragment: str) -> list:
     parts = fragment.split(";")
 
     decoded = [p[::-1] for p in parts if p]
-
+    
     return decoded 
 
 
