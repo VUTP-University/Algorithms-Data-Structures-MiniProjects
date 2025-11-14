@@ -3,8 +3,8 @@
   🧩 Mini Project: The Data Heist of Codex-9
 =========================================================
 
-TEAM: # Endless
-MEMBERS: # 24101001 K. Delchev (solo)
+TEAM: # Your team name
+MEMBERS: # Your members
 
 STORY:
 The AI system Codex-9 has been hacked. Fragments of its digital blueprint 
