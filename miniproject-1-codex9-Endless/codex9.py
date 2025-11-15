@@ -98,7 +98,7 @@ def unique_modules(modules: list) -> list:
         [('code', 104), ('python', 215)]
     """
     # TODO: Convert to set and back to list
-    pass
+    return [t for t in (set(tuple(i) for i in modules))]
 
 
 # =======================================================
@@ -121,7 +121,12 @@ def build_restoration_queue(unique_list: list) -> list:
         [104, 215, 309]
     """
     # TODO: Use deque for queue logic
-    pass
+    queue = deque(unique_list)
+    restored =[]
+    while queue:
+        word, module_id = queue.popleft()
+        restored.append(module_id)
+    return restored
 
 # =======================================================
 # 🧩 TASK 5 — Track Actions with Stack (Stack)
