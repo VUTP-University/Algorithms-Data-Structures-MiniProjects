@@ -170,7 +170,7 @@ def track_actions(module_ids: list) -> list:
    for i in range(len(module_ids)):
         prefix = "load_" if i % 2 == 0 else "verify_"
         module_ids[i] = prefix + str(module_ids[i])
-
+    print(f"{module_ids}\n(after 3 undos)")
     for _ in range (3):
         module_ids.pop()
     
