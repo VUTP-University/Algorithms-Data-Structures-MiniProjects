@@ -167,7 +167,16 @@ def track_actions(module_ids: list) -> list:
         ['load_104', 'verify_215']
     """
     # TODO: Use list as stack and pop last 3
-    pass
+   for i in range(len(module_ids)):
+        prefix = "load_" if i % 2 == 0 else "verify_"
+        module_ids[i] = prefix + str(module_ids[i])
+
+    for _ in range (3):
+        module_ids.pop()
+    
+    return module_ids
+
+print(track_actions([104, 215, 309, 412, 518]))
 
 
 # =======================================================
