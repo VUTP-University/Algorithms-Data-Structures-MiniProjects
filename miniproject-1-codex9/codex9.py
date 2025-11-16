@@ -138,7 +138,12 @@ def build_restoration_queue(unique_list: list) -> list:
         [104, 215, 309]
     """
     # TODO: Use deque for queue logic
-    pass
+    queue = deque()
+    for _, value in unique_list:
+        queue.append(value)
+    return list(queue)
+
+print(build_restoration_queue([('code', 104), ('python', 215), ('Data', 309)]))
 
 # =======================================================
 # 🧩 TASK 5 — Track Actions with Stack (Stack)
