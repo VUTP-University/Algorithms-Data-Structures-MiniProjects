@@ -150,7 +150,16 @@ def track_actions(module_ids: list) -> list:
         ['load_104', 'verify_215']
     """
     # TODO: Use list as stack and pop last 3
-    pass
+    stack = []
+    for i, mid in enumerate(module_ids):
+        if i % 2 == 0:
+            stack.append(f"load_{mid}")
+        else:
+            stack.append(f"verify_{mid}")
+    for _ in range(3):
+        if stack:
+            stack.pop()
+    return stack
 
 
 # =======================================================
@@ -180,7 +189,12 @@ def map_actions_to_metadata(actions: list, metadata: dict) -> dict:
         }
     """
     # TODO: Extract module IDs from actions and map metadata
-    pass
+    result = {}
+    for action in actions:
+        action_name, module_id_str = action.split("_")
+        module_id = int(module_id_str)
+        result[action] = metadata[module_id]
+    return result
 
 
 # =======================================================
