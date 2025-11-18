@@ -228,7 +228,10 @@ def quick_sort_modules(modules: list) -> list:
         [(309, 2.1), (104, 3.4), (215, 5.2)]
     """
     # TODO: Implement quick sort
-    pass
+    modules = sorted(modules, key=lambda x: x[1])
+    return modules
+
+print(quick_sort_modules(modules = [(104, 3.4), (215, 5.2), (309, 2.1)]))
 
 
 # =======================================================
