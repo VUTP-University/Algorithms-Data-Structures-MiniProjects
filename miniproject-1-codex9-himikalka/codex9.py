@@ -53,10 +53,11 @@ def decode_fragment(fragment: str) -> list:
     Example Output:
         ['code', 'python', 'Data', 'structure', 'Algorithms']
     """
-    # TODO: Implement the decoding logic here
+    parts = fragment.split(";")
+    decoded = [p[::-1] for p in parts]
 
    
-    return 1
+    return decoded
 
 
 # =======================================================
