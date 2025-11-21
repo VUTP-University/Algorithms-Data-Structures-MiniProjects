@@ -62,6 +62,8 @@ def decode_fragment(fragment: str) -> list:
             reversed_word=char+reversed_word
         decoded.append(reversed_word)
     return decoded
+fragment="edoc;nohtyp;ataD;erutcurts;smhtiroglA"
+print(decode_fragment(fragment))
 
 
 # =======================================================
@@ -87,6 +89,9 @@ def organize_segments(words: list, module_numbers: list) -> list:
     # TODO: Combine words and IDs into tuples
     def organize_segments(words: list, module_numbers: list) -> list:
     return list(zip(words, module_numbers))
+words = ['code', 'python', 'Data', 'structure', 'Algorithms']
+module_numbers = [104, 215, 309, 412, 518]
+print(organize_segments(words, module_numbers))
 
 
 # =======================================================
@@ -108,7 +113,15 @@ def unique_modules(modules: list) -> list:
         [('code', 104), ('python', 215)]
     """
     # TODO: Convert to set and back to list
-    pass
+    seen = set()
+    unique_list = []
+    for item in modules:
+        if item not in seen:
+            seen.add(item)
+            unique_list.append(item)
+    return unique_list
+modules = [('code', 104), ('python', 215), ('python', 215)]
+print(unique_modules(modules))
 
 
 # =======================================================
@@ -131,7 +144,14 @@ def build_restoration_queue(unique_list: list) -> list:
         [104, 215, 309]
     """
     # TODO: Use deque for queue logic
-    pass
+    queue = deque(unique_list)
+    restored = []
+    while queue:
+        _, module_id = queue.popleft()
+        restored.append(module_id)
+    return restored
+unique_modules = [('code', 104), ('python', 215), ('Data', 309)]
+print(build_restoration_queue(unique_modules))
 
 # =======================================================
 # 🧩 TASK 5 — Track Actions with Stack (Stack)
@@ -185,7 +205,19 @@ def map_actions_to_metadata(actions: list, metadata: dict) -> dict:
         }
     """
     # TODO: Extract module IDs from actions and map metadata
-    pass
+    result = {}
+    for action in actions:
+        _, module_id_str = action.split("_")
+        module_id = int(module_id_str)
+        if module_id in metadata:
+            result[action] = metadata[module_id]
+    return result
+actions = ['load_104', 'verify_215']
+metadata = {
+    104: {"size": 3.4, "status": "ok"},
+    215: {"size": 5.2, "status": "ok"}
+}
+print(map_actions_to_metadata(actions, metadata))
 
 
 # =======================================================
@@ -207,7 +239,14 @@ def quick_sort_modules(modules: list) -> list:
         [(309, 2.1), (104, 3.4), (215, 5.2)]
     """
     # TODO: Implement quick sort
-    pass
+    if len(modules) <= 1:
+        return modules
+    pivot = modules[0][1] 
+    left = [m for m in modules[1:] if m[1] <= pivot]
+    right = [m for m in modules[1:] if m[1] > pivot]
+    return quick_sort_modules(left) + [modules[0]] + quick_sort_modules(right)
+modules=[(104, 3.4), (215, 5.2), (309, 2.1)]
+print(quick_sort_modules(modules))
 
 
 # =======================================================
