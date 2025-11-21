@@ -166,8 +166,18 @@ def track_actions(module_ids: list) -> list:
         (after 3 undos)
         ['load_104', 'verify_215']
     """
-    # TODO: Use list as stack and pop last 3
-    pass
+    action_stack = []
+    for i, module_id in enumerate(module_ids):
+        action_type = 'load' if i % 2 == 0 else 'verify'
+        action = f"{action_type}_{module_id}"
+        print(f"Performing action: {action}")
+        action_stack.append(action)
+    for _ in range(3):
+        if action_stack:
+            undone_action = action_stack.pop()
+            print(f"Undoing action: {undone_action}")
+    return action_stack
+    
 
 
 # =======================================================
