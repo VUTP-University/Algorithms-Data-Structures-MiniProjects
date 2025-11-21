@@ -106,7 +106,13 @@ def unique_modules(modules: list) -> list:
         [('code', 104), ('python', 215)]
     """
     # TODO: Convert to set and back to list
-    pass
+    seen = set()
+    unique = []
+    for item in modules:
+        if item not in seen:
+            seen.add(item)
+            unique.append(item)
+    return unique
 
 
 # =======================================================
