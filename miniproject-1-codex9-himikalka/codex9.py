@@ -207,7 +207,7 @@ def map_actions_to_metadata(actions: list, metadata: dict) -> dict:
         }
     """
     # TODO: Extract module IDs from actions and map metadata
-    def map_actions_to_metadata(actions: list, metadata: dict) -> dict:
+    
     mapped_data = {}
     for act in actions:
         _, mod_id_str = act.split('_')
