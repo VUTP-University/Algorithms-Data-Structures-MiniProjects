@@ -218,10 +218,10 @@ def quick_sort_modules(modules: list) -> list:
     # TODO: Implement quick sort
     if len(modules) <= 1:
         return modules
-    p = modules[0][1]
-    less = [x for x in modules if x[1] < p]
-    equal = [x for x in modules if x[1] == p]
-    more = [x for x in modules if x[1] > p]
+    y = modules[0][1]
+    less = [x for x in modules if x[1] < y]
+    equal = [x for x in modules if x[1] == y]
+    more = [x for x in modules if x[1] > y]
     return quick_sort_modules(less) + equal + quick_sort_modules(more)
 
 
@@ -254,7 +254,13 @@ def insert_bst(root: BSTNode, key: int, value: float) -> BSTNode:
         value (float): The module size.
     """
     # TODO: Insert node correctly
-    pass
+    if not root:
+        return BSTNode(key, value)
+    if value < root.value:
+        root.left = insert_bst(root.left, key, value)
+    else:
+        root.right = insert_bst(root.right, key, value)
+    return root
 
 def inorder_bst(root: BSTNode) -> list:
     """
@@ -264,7 +270,7 @@ def inorder_bst(root: BSTNode) -> list:
         root (BSTNode): The root of the BST.
     """
     # TODO: Implement inorder traversal
-    pass
+    return [] if not root else inorder_bst(root.left) + [(root.key, root.value)] + inorder_bst(root.right)
 
 
 
@@ -324,6 +330,13 @@ def dfs_activation(graph: dict, start: str) -> list:
         System Message: Blueprint successfully restored. Codex-9 reboot complete.
     """
     # TODO: Implement recursive DFS
-    pass
+    visited = []
+    def dfs(node):
+        if node not in visited:
+            visited.append(node)
+            for next in graph[node]:
+                dfs(next)
+    dfs(start)
+    return visited, 'Blueprint successfully restored. Codex-9 reboot complete.'
 
 
