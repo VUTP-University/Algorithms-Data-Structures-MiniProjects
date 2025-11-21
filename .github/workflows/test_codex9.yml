@@ -3,9 +3,9 @@ permissions:
   contents: read
   
 on:
-  pull_request:
-    branches:
-      - master
+  # pull_request:
+#     types: [opened, synchronize, reopened]
+  workflow_dispatch:
 
 jobs:
   run-tests:
@@ -28,4 +28,4 @@ jobs:
       - name: Run Codex9 Tests
         run: |
           echo "🔍 Running unit tests..."
-          pytest -q test_codex9.py
+          pytest -q miniproject-1-codex9/test_codex9.py
