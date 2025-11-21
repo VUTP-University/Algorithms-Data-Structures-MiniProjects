@@ -134,8 +134,16 @@ def build_restoration_queue(unique_list: list) -> list:
     Example Output:
         [104, 215, 309]
     """
-    # TODO: Use deque for queue logic
-    pass
+    queue = unique_list.copy()
+    restored_ids = []
+
+    while queue:
+        module = queue.pop(0)  # премахваме първия елемент (FIFO)
+        word, module_id = module
+        print(f"Restoring module '{word}' with ID {module_id}...")
+        restored_ids.append(module_id)
+
+    return restored_ids
 
 # =======================================================
 # 🧩 TASK 5 — Track Actions with Stack (Stack)
