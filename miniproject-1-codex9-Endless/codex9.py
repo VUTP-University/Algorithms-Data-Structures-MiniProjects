@@ -216,7 +216,13 @@ def quick_sort_modules(modules: list) -> list:
         [(309, 2.1), (104, 3.4), (215, 5.2)]
     """
     # TODO: Implement quick sort
-    pass
+    if len(modules) <= 1:
+        return modules
+    p = modules[0][1]
+    less = [x for x in modules if x[1] < p]
+    equal = [x for x in modules if x[1] == p]
+    more = [x for x in modules if x[1] > p]
+    return quick_sort_modules(less) + equal + quick_sort_modules(more)
 
 
 # =======================================================
@@ -286,7 +292,7 @@ def build_dependency_graph(connection_map: dict) -> dict:
         Same dictionary (adjacency list)
     """
     # TODO: Return adjacency list
-    pass
+    return connection_map
 
 
 # =======================================================
