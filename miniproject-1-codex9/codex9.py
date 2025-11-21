@@ -301,7 +301,20 @@ def build_dependency_graph(connection_map: dict) -> dict:
         Same dictionary (adjacency list)
     """
     # TODO: Return adjacency list
-    pass
+    adjacency_list = {}
+    for vertex, neighbors in connection_map.items():
+        adjacency_list[vertex] = list(neighbors)
+    for vertex, neighbors in adjacency_list.items():
+        print(f"{vertex} -> {' '.join(map(str, neighbors))}")
+    return adjacency_list
+
+print(build_dependency_graph({
+          "104": ["215", "309"],
+          "215": ["412"],
+          "309": ["518"],
+          "412": ["518"],
+          "518": []
+        }))
 
 
 # =======================================================
