@@ -26,6 +26,14 @@ Each function (Task 1–10) represents a part of the restoration process.
 The output from each function becomes the input for the next one.  
 Complete all tasks to successfully reboot Codex-9!
 
+### Miniproject-2: Protocol QV-7 Recovery
+The Quantum Vault Protocol QV-7 has been compromised, leading to a breakdown in its security systems.
+Your task is to reconstruct the vault's integrity by implementing a series of algorithms and data structures.
+
+Each function (Task 1–10) represents a step in the recovery process.
+The output from each function becomes the input for the next one.
+Complete all tasks to successfully restore Protocol QV-7!
+
 ---
 
 
