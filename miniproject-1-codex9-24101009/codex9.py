@@ -87,8 +87,6 @@ def organize_segments(words: list, module_numbers: list) -> list:
     # TODO: Combine words and IDs into tuples
     def organize_segments(words: list, module_numbers: list) -> list:
     return list(zip(words, module_numbers))
-words = ['code', 'python', 'Data', 'structure', 'Algorithms']
-module_numbers = [104, 215, 309, 412, 518]
 
 
 # =======================================================
