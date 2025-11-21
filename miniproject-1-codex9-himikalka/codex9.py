@@ -138,7 +138,7 @@ def build_restoration_queue(unique_list: list) -> list:
     restored_ids = []
 
     while queue:
-        module = queue.pop(0)  # премахваме първия елемент (FIFO)
+        module = queue.pop(0)
         word, module_id = module
         print(f"Restoring module '{word}' with ID {module_id}...")
         restored_ids.append(module_id)
