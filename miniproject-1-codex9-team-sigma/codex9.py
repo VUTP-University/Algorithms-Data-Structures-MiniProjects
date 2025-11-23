@@ -351,6 +351,20 @@ def dfs_activation(graph: dict, start: str) -> list:
         System Message: Blueprint successfully restored. Codex-9 reboot complete.
     """
     # TODO: Implement recursive DFS
-    pass
+    visited = set()
+    order = []
+
+    def dfs(node):
+        if node in visited:
+            return
+        visited.add(node)
+        order.append(node)
+        for neighbor in graph.get(node, []):
+            dfs(neighbor)
+
+    dfs(start)
+
+    return order, "Blueprint successfully restored. Codex-9 reboot complete."
+
 
 
