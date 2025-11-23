@@ -270,7 +270,15 @@ def insert_bst(root: BSTNode, key: int, value: float) -> BSTNode:
         value (float): The module size.
     """
     # TODO: Insert node correctly
-    pass
+    if root is None:
+        return BSTNode(key, value)
+
+    if value < root.value:
+        root.left = insert_bst(root.left, key, value)
+    else:
+        root.right = insert_bst(root.right, key, value)
+
+    return root
 
 def inorder_bst(root: BSTNode) -> list:
     """
@@ -280,7 +288,10 @@ def inorder_bst(root: BSTNode) -> list:
         root (BSTNode): The root of the BST.
     """
     # TODO: Implement inorder traversal
-    pass
+    if root is None:
+        return []
+
+    return inorder_bst(root.left) + [(root.key, root.value)] + inorder_bst(root.right)
 
 
 
