@@ -159,7 +159,20 @@ def track_actions(module_ids: list) -> list:
         ['load_104', 'verify_215']
     """
     # TODO: Use list as stack and pop last 3
-    pass
+    stack = []
+
+    for i, module_id in enumerate(module_ids):
+        if i % 2 == 0:
+            action = f"load_{module_id}"
+        else:
+            action = f"verify_{module_id}"
+        stack.append(action)
+
+    for _ in range(3):
+        if stack:
+            undone = stack.pop()
+
+    return stack
 
 
 # =======================================================
