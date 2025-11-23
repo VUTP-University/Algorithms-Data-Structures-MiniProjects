@@ -319,7 +319,7 @@ def build_dependency_graph(connection_map: dict) -> dict:
         Same dictionary (adjacency list)
     """
     # TODO: Return adjacency list
-    pass
+    return connection_map
 
 
 # =======================================================
