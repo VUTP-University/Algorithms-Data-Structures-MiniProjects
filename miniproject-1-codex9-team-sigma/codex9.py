@@ -229,7 +229,16 @@ def quick_sort_modules(modules: list) -> list:
         [(309, 2.1), (104, 3.4), (215, 5.2)]
     """
     # TODO: Implement quick sort
-    pass
+    if len(modules) <= 1:
+        return modules
+
+    pivot = modules[len(modules) // 2]
+    left = [module for module in modules if module[1] < pivot[1]]
+    middle = [module for module in modules if module[1] == pivot[1]]
+    right = [module for module in modules if module[1] > pivot[1]]
+
+    return quick_sort_modules(left) + middle + quick_sort_modules(right)
+
 
 
 # =======================================================
