@@ -103,7 +103,8 @@ def unique_modules(modules: list) -> list:
         [('code', 104), ('python', 215)]
     """
     # TODO: Convert to set and back to list
-    pass
+    unique = list(set(modules))
+    return unique
 
 
 # =======================================================
