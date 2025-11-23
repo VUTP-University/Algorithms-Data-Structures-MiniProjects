@@ -202,9 +202,9 @@ def map_actions_to_metadata(actions: list, metadata: dict) -> dict:
         }
     """
     # TODO: Extract module IDs from actions and map metadata
-   action_metadata = {}
+    action_metadata = {}
     for action in actions:
-        module_id = int(action.split('_')[1])  # Extract module ID
+        module_id = int(action.split("_")[1])
         if module_id in metadata:
             action_metadata[action] = metadata[module_id]
     return action_metadata
