@@ -3,8 +3,8 @@
   🧩 Mini Project: The Data Heist of Codex-9
 =========================================================
 
-TEAM: # Your team's name
-MEMBERS: # List of team members
+TEAM: # sigma
+MEMBERS: # 24071002, 24101012
 
 STORY:
 The AI system Codex-9 has been hacked. Fragments of its digital blueprint 
@@ -54,7 +54,9 @@ def decode_fragment(fragment: str) -> list:
         ['code', 'python', 'Data', 'structure', 'Algorithms']
     """
     # TODO: Implement the decoding logic here
-    pass
+    segments = fragment.split(';')
+    decoded = [segment[::-1] for segment in segments]
+    return decoded
 
 
 # =======================================================
