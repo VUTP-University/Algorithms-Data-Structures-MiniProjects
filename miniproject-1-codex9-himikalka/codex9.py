@@ -221,22 +221,16 @@ def map_actions_to_metadata(actions: list, metadata: dict) -> dict:
 # 🧩 TASK 7 — Sort Modules by Size (Sorting Algorithm)
 # =======================================================
 def quick_sort_modules(modules: list) -> list:
-    """
-    Implements quick sort to order (id, size) pairs by size ascending.
+     if len(modules) <= 1:
+        return modules
     
-    Arguments:
-        modules (list): A list of tuples (id, size).
-        
-    Returns:
-        list: A list of tuples sorted by size in ascending order.
-
-    Example Input:
-        [(104, 3.4), (215, 5.2), (309, 2.1)]
-    Example Output:
-        [(309, 2.1), (104, 3.4), (215, 5.2)]
-    """
-    # TODO: Implement quick sort
-    pass
+    pivot = modules[len(modules) // 2][1]  
+    left = [m for m in modules if m[1] < pivot]
+    middle = [m for m in modules if m[1] == pivot]
+    right = [m for m in modules if m[1] > pivot]
+    
+    return quick_sort_modules(left) + middle + quick_sort_modules(right)
+   
 
 
 # =======================================================
@@ -259,24 +253,21 @@ class BSTNode:
         self.right = None
 
 def insert_bst(root: BSTNode, key: int, value: float) -> BSTNode:
-    """
-    Inserts (id, size) into BST ordered by size.
+     if root is None:
+        return BSTNode(key, value)
+
+    if value < root.value:
+        root.left = insert_bst(root.left, key, value)
+    else:
+        root.right = insert_bst(root.right, key, value)
     
-    Arguments:
-        root (BSTNode): The root of the BST.
-        key (int): The module ID.
-        value (float): The module size.
-    """
-    # TODO: Insert node correctly
-    pass
+    return root
 
 def inorder_bst(root: BSTNode) -> list:
-    """
-    Returns inorder traversal of BST as list of (id, size) pairs.
+    if root is None:
+        return []
     
-    Arguments:
-        root (BSTNode): The root of the BST.
-    """
+    return inorder_bst(root.left) + [(root.key, root.value)] + inorder_bst(root.right)
     # TODO: Implement inorder traversal
     pass
 
@@ -286,58 +277,26 @@ def inorder_bst(root: BSTNode) -> list:
 # 🧩 TASK 9 — Connect the Modules (Graph)
 # =======================================================
 def build_dependency_graph(connection_map: dict) -> dict:
-    """
-    Builds adjacency list representing module dependencies.
-    
-    Arguments:
-        connection_map (dict): A dictionary mapping module IDs to lists of dependent module IDs.
-    Returns:
-        dict: An adjacency list representing the graph of module dependencies.
-
-    Example Input:
-        {
-          "104": ["215", "309"],
-          "215": ["412"],
-          "309": ["518"],
-          "412": ["518"],
-          "518": []
-        }
-    Example Output:
-        Same dictionary (adjacency list)
-    """
-    # TODO: Return adjacency list
-    pass
+    return {node: neighbors[:] for node, neighbors in connection_map.items()}
 
 
 # =======================================================
 # 🧩 TASK 10 — Reboot Codex-9 (Graph Traversal)
 # =======================================================
-def dfs_activation(graph: dict, start: str) -> list:
-    """
-    Performs Depth-First Search (DFS) to determine activation order.
-    
-    Arguments:
-        graph (dict): An adjacency list representing module dependencies.
-        start (str): The starting module ID for activation.
-        
-    Returns:
-        list: A list of module IDs in the order they are activated.
-        str: A system message indicating successful reboot.
+visited = set()
+    order = []
 
-    Example Input:
-        {
-          "104": ["215", "309"],
-          "215": ["412"],
-          "309": ["518"],
-          "412": ["518"],
-          "518": []
-        }, start="104"
+    def dfs(node):
+        if node in visited:
+            return
+        visited.add(node)
+        order.append(node)
 
-    Example Output:
-        Activation order: ['104', '215', '412', '518', '309']
-        System Message: Blueprint successfully restored. Codex-9 reboot complete.
-    """
-    # TODO: Implement recursive DFS
-    pass
+        for neighbor in graph.get(node, []):
+            dfs(neighbor)
 
+    dfs(start)
+
+    return order
+   
 
