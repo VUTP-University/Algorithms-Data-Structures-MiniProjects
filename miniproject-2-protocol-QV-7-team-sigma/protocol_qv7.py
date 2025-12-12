@@ -3,8 +3,8 @@
   🧩 Mini Project: The Quantum Vault Breach — Protocol QV-7
 =========================================================
 
-TEAM: # Your team's name
-MEMBERS: # List of team members
+TEAM: # sigma
+MEMBERS: # 24071002, 24101012
 
 STORY:
 Deep beneath the abandoned research facility *Helion Prime*, a classified
@@ -40,6 +40,7 @@ INSTRUCTIONS:
 from collections import deque
 import json
 import heapq
+import re
 
 
 # =======================================================
@@ -62,7 +63,15 @@ def extract_shards(corrupted_stream: str) -> list:
         ['Optimization32', '100_string', 'select-name']
     """
     # TODO: Implement extraction + cleaning
-    pass
+    shards = corrupted_stream.split("#")
+    cleaned_shards = []
+
+    for shard in shards:
+        reversed_shard = shard[::-1]
+        cleaned_shard = re.sub(r'[^a-zA-Z0-9_]', '', reversed_shard)
+        cleaned_shards.append(cleaned_shard)
+    
+    return cleaned_shards
 
 
 # =======================================================
