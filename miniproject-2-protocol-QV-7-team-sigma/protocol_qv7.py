@@ -96,7 +96,7 @@ def pair_shards(shards: list, codes: list) -> list:
         [('alpha', 7), ('beta', 12), ('gamma', 18), ('alpha', 22)]
     """
     # TODO: Combine the two lists into tuples
-    pass
+    return list(zip(shards, codes))
 
 
 # =======================================================
