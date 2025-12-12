@@ -150,7 +150,14 @@ def initialize_queue(unique_pairs: list) -> list:
         [7, 12, 18]
     """
     # TODO: Use deque to simulate queue operations
-    pass
+    queue = deque(unique_pairs)
+    processed_codes = []
+
+    while queue:
+        shard, code = queue.popleft()
+        processed_codes.append(code)
+    
+    return processed_codes
 
 
 # =======================================================
