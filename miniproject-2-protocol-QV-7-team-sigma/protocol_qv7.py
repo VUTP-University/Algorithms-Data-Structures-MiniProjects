@@ -119,7 +119,15 @@ def stabilize_registry(pairs: list) -> list:
         [('alpha', 7), ('beta', 12), ('gamma', 18)]
     """
     # TODO: Convert to set then back to list
-    pass
+    seen = set()
+    unique_pairs = []
+
+    for shard, code in pairs:
+        if shard not in seen:
+            seen.add(shard)
+            unique_pairs.append((shard, code))
+    
+    return unique_pairs
 
 
 # =======================================================
