@@ -183,7 +183,17 @@ def action_log(codes: list) -> list:
         ['decode_7', 'validate_7', 'decode_12', 'validate_12']
     """
     # TODO: Use Python list as stack
-    pass
+    stack = []
+
+    for code in codes:
+        stack.append(f"decode_{code}")
+        stack.append(f"validate_{code}")
+    
+    if len(stack) >= 2:
+        stack.pop()
+        stack.pop()
+    
+    return stack
 
 
 # =======================================================
