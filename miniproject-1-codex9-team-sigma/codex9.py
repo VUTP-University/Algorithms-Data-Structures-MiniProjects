@@ -202,7 +202,12 @@ def map_actions_to_metadata(actions: list, metadata: dict) -> dict:
         }
     """
     # TODO: Extract module IDs from actions and map metadata
-    pass
+    action_metadata = {}
+    for action in actions:
+        module_id = int(action.split("_")[1])
+        if module_id in metadata:
+            action_metadata[action] = metadata[module_id]
+    return action_metadata
 
 
 # =======================================================
@@ -224,7 +229,16 @@ def quick_sort_modules(modules: list) -> list:
         [(309, 2.1), (104, 3.4), (215, 5.2)]
     """
     # TODO: Implement quick sort
-    pass
+    if len(modules) <= 1:
+        return modules
+
+    pivot = modules[len(modules) // 2]
+    left = [module for module in modules if module[1] < pivot[1]]
+    middle = [module for module in modules if module[1] == pivot[1]]
+    right = [module for module in modules if module[1] > pivot[1]]
+
+    return quick_sort_modules(left) + middle + quick_sort_modules(right)
+
 
 
 # =======================================================
@@ -256,7 +270,15 @@ def insert_bst(root: BSTNode, key: int, value: float) -> BSTNode:
         value (float): The module size.
     """
     # TODO: Insert node correctly
-    pass
+    if root is None:
+        return BSTNode(key, value)
+
+    if value < root.value:
+        root.left = insert_bst(root.left, key, value)
+    else:
+        root.right = insert_bst(root.right, key, value)
+
+    return root
 
 def inorder_bst(root: BSTNode) -> list:
     """
@@ -266,7 +288,10 @@ def inorder_bst(root: BSTNode) -> list:
         root (BSTNode): The root of the BST.
     """
     # TODO: Implement inorder traversal
-    pass
+    if root is None:
+        return []
+
+    return inorder_bst(root.left) + [(root.key, root.value)] + inorder_bst(root.right)
 
 
 
@@ -294,7 +319,7 @@ def build_dependency_graph(connection_map: dict) -> dict:
         Same dictionary (adjacency list)
     """
     # TODO: Return adjacency list
-    pass
+    return connection_map
 
 
 # =======================================================
@@ -326,6 +351,20 @@ def dfs_activation(graph: dict, start: str) -> list:
         System Message: Blueprint successfully restored. Codex-9 reboot complete.
     """
     # TODO: Implement recursive DFS
-    pass
+    visited = set()
+    order = []
+
+    def dfs(node):
+        if node in visited:
+            return
+        visited.add(node)
+        order.append(node)
+        for neighbor in graph.get(node, []):
+            dfs(neighbor)
+
+    dfs(start)
+
+    return order, "Blueprint successfully restored. Codex-9 reboot complete."
+
 
 
