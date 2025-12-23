@@ -217,7 +217,7 @@ def annotate_shards(actions: list, shard_info: dict) -> dict:
     Output:
         {'decode_7': {'energy': 1.2, 'state': 'stable'}}
     """
-     
+    # TODO: Extract code from action name and map
     annotated = {}
     
     for action in actions:
@@ -248,7 +248,32 @@ def merge_sort_energy(shards: list) -> list:
         [(7, 1.2), (12, 2.5), (18, 3.1)]
     """
     # TODO: Implement merge sort
-    pass
+    if len(shards) <= 1:
+        return shards
+
+    mid = len(shards) // 2
+    left = merge_sort_energy(shards[:mid])
+    right = merge_sort_energy(shards[mid:])
+
+    return merge(left, right)
+
+
+def merge(left: list, right: list) -> list:
+    result = []
+    i = j = 0
+
+    while i < len(left) and j < len(right):
+        if left[i][1] <= right[j][1]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+
+    result.extend(left[i:])
+    result.extend(right[j:])
+
+    return result
 
 
 # =======================================================
