@@ -217,8 +217,16 @@ def annotate_shards(actions: list, shard_info: dict) -> dict:
     Output:
         {'decode_7': {'energy': 1.2, 'state': 'stable'}}
     """
-    # TODO: Extract code from action name and map
-    pass
+     
+    annotated = {}
+    
+    for action in actions:
+        code = int(action.split('_')[1])
+      
+        if code in shard_info:
+            annotated[action] = shard_info[code]
+    
+    return annotated
 
 
 # =======================================================
