@@ -297,7 +297,15 @@ def insert_qv(root: QuantumNode, code: int, energy: float) -> QuantumNode:
         energy (float): Energy value.
     """
     # TODO: Implement BST insertion logic
-    pass
+    if root is None:
+        return QuantumNode(code, energy)
+
+    if energy < root.energy:
+        root.left = insert_qv(root.left, code, energy)
+    else:
+        root.right = insert_qv(root.right, code, energy)
+
+    return root
 
 
 def inorder_qv(root: QuantumNode) -> list:
@@ -316,7 +324,15 @@ def inorder_qv(root: QuantumNode) -> list:
         [(2, 0.9), (7, 1.2), (12, 2.5), (18, 3.1), (22, 4.0)]
     """
     # TODO: Implement inorder traversal
-    pass
+    if root is None:
+        return []
+
+    return (
+        inorder_qv(root.left)
+        + [(root.code, root.energy)]
+        + inorder_qv(root.right)
+    )
+
 
 
 # =======================================================
