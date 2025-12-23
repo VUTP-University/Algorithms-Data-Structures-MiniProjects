@@ -356,7 +356,15 @@ def build_shard_graph(mapping: dict) -> dict:
         }
     """
     # TODO: Return adjacency list
-    pass
+    graph = {}
+
+    for shard, dependencies in mapping.items():
+        graph[shard] = dependencies[:]
+        for dep in dependencies:
+            if dep not in graph:
+                graph[dep] = []
+
+    return graph
 
 
 # =======================================================
