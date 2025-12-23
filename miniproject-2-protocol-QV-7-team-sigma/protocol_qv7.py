@@ -390,4 +390,16 @@ def dfs_sequence(graph: dict, start: str) -> list:
         "Quantum Vault fully restored. Protocol QV-7 complete."
     """
     # TODO: Implement DFS recursively
-    pass
+    visited = set()
+    order = []
+
+    def dfs(node):
+        if node in visited:
+            return
+        visited.add(node)
+        order.append(node)
+        for neighbor in graph.get(node, []):
+            dfs(neighbor)
+
+    dfs(start)
+    return order
